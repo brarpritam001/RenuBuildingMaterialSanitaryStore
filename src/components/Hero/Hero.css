@@ -140,6 +140,7 @@
   padding: var(--spacing-xs) var(--spacing-md);
   border-radius: var(--radius-full);
   margin-bottom: var(--spacing-md);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(8px);
   box-shadow: var(--shadow-sm);
   animation: fadeInDown 0.6s ease-out;
@@ -212,6 +213,7 @@
   font-size: 0.8125rem;
   font-weight: 500;
   transition: var(--transition);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(4px);
 }
 
@@ -273,6 +275,7 @@
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--white);
   border: 1px solid rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(8px);
 }
 

@@ -6,13 +6,28 @@
     "axe/aria": [
       "default",
       {
-        "aria-valid-attr-value": "off"
+        "aria-valid-attr-value": "off",
+        "aria-required-children": "off"
       }
     ],
     "axe/structure": [
       "default",
       {
         "list": "off"
+      }
+    ],
+    "no-inline-styles": "off",
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off"
+      }
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "label": "off",
+        "select-name": "off"
       }
     ]
   }

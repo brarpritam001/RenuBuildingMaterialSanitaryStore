@@ -2,6 +2,7 @@
   import { FaPhone, FaChevronDown, FaUser, FaSearch, FaTimes } from 'react-icons/fa';
   import type { HeaderProps } from '../../types/types';
   import './Header.css';
+import { Link } from 'react-router-dom';
 
  const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
     // const [isScrolled, setIsScrolled] = useState(false);
@@ -137,17 +138,17 @@
                     <div className="dropdown-content">
                       <div className="dropdown-column">
                         <div className="dropdown-title">Popular Products</div>
-                        <a href="#" className="dropdown-item" role="menuitem">Construction Tools</a>
-                        <a href="#" className="dropdown-item" role="menuitem">Professional Equipment</a>
-                        <a href="#" className="dropdown-item" role="menuitem">Safety Gear</a>
-                        <a href="#" className="dropdown-item" role="menuitem">Building Materials</a>
+                        <Link to={'/products'} className="dropdown-item" role="menuitem">Masonry</Link>
+                        <Link to={'/products'} className="dropdown-item" role="menuitem">Plumbing</Link>
+                        <Link to={'/products'} className="dropdown-item" role="menuitem">Safety Gear</Link>
+                        <Link to={'/products'} className="dropdown-item" role="menuitem">Building Materials</Link>
                       </div>
                       <div className="dropdown-column">
                         <div className="dropdown-title">Categories</div>
-                        <a href="#" className="dropdown-item" role="menuitem">Interior Solutions</a>
-                        <a href="#" className="dropdown-item" role="menuitem">Exterior Products</a>
-                        <a href="#" className="dropdown-item" role="menuitem">Specialty Tools</a>
-                        <a href="#" className="dropdown-item" role="menuitem">View All Products</a>
+                        <Link to={'/products'} className="dropdown-item" role="menuitem">Interior Solutions</Link>
+                        <Link to={'/products'} className="dropdown-item" role="menuitem">Exterior Products</Link>
+                        <Link to={'/products'} className="dropdown-item" role="menuitem">Specialty Tools</Link>
+                        <Link to={'/products'} className="dropdown-item" role="menuitem">View All Products</Link>
                       </div>
                     </div>
                   </div>
@@ -173,25 +174,25 @@
                     <div className="dropdown-content">
                       <div className="dropdown-column">
                         <div className="dropdown-title">By Industry</div>
-                        <a href="#" className="dropdown-item" role="menuitem">Residential Construction</a>
-                        <a href="#" className="dropdown-item" role="menuitem">Commercial Projects</a>
-                        <a href="#" className="dropdown-item" role="menuitem">Industrial Solutions</a>
-                        <a href="#" className="dropdown-item" role="menuitem">Government Contracts</a>
+                        <Link to={'/solutions'} className="dropdown-item" role="menuitem">Residential Construction</Link>
+                        <Link to={'/solutions'} className="dropdown-item" role="menuitem">Commercial Projects</Link>
+                        <Link to={'/solutions'} className="dropdown-item" role="menuitem">Industrial Solutions</Link>
+                        <Link to={'/solutions'} className="dropdown-item" role="menuitem">Government Contracts</Link>
                       </div>
                       <div className="dropdown-column">
                         <div className="dropdown-title">By Need</div>
-                        <a href="#" className="dropdown-item" role="menuitem">Project Management</a>
-                        <a href="#" className="dropdown-item" role="menuitem">Cost Estimation</a>
-                        <a href="#" className="dropdown-item" role="menuitem">Energy Efficiency</a>
-                        <a href="#" className="dropdown-item" role="menuitem">Sustainability</a>
+                        <Link to={'/solutions'} className="dropdown-item" role="menuitem">Project Management</Link>
+                        <Link to={'/solutions'} className="dropdown-item" role="menuitem">Cost Estimation</Link>
+                        <Link to={'/solutions'} className="dropdown-item" role="menuitem">Energy Efficiency</Link>
+                        <Link to={'/solutions'} className="dropdown-item" role="menuitem">Sustainability</Link>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <a href="#" className="nav-link">Resources</a>
-                <a href="#" className="nav-link">Projects</a>
-                <a href="#" className="nav-link">About</a>
+                
+                <Link to={'/resources'} className="nav-link">Resources</Link>
+                <Link to={'/projects'} className="nav-link">Projects</Link>
+                <Link to={'/about'} className="nav-link">About</Link>
               </div>
               
               <div className="nav-actions">
