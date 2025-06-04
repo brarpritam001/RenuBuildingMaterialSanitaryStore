@@ -16,6 +16,7 @@ import ContractorTerms from './pages/ContractorTerms/ContractorTerms'
 import Careers from './pages/Careers/Careers'
 import Sustainability from './pages/Sustainability/Sustainability'
 import PressMedia from './pages/PressMedia/PressMedia'
+
 const router = createBrowserRouter([
   { path: "/", element: <App />},
   { path: "/about", element: <Layout><About /></Layout> },
@@ -30,10 +31,8 @@ const router = createBrowserRouter([
   { path:"/careers", element : <Layout><Careers/></Layout> },
   { path:"/sustainability", element : <Layout><Sustainability/></Layout> },
   { path:"/pressMedia", element : <Layout><PressMedia/></Layout> },
-
-
-
-]);
+],{ basename: '/RenuBuildingMaterialSanitaryStore'}
+);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

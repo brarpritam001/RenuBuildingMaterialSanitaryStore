@@ -1,5 +1,6 @@
 import { FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -28,41 +29,41 @@ const Footer = () => {
 
   // Define all links as constants for easy management
   const productLinks = [
-    { name: 'New Products', url: '/products' },
-    { name: 'Featured Products', url: '/products' },
-    { name: 'Contractor Packs', url: '/products' },
-    { name: 'Product Catalog', url: '/products' },
-    { name: 'Material Samples', url: '/products' }
+    { name: 'New Products', path: '/products' },
+    { name: 'Featured Products', path: '/products' },
+    { name: 'Contractor Packs', path: '/products' },
+    { name: 'Product Catalog', path: '/products' },
+    { name: 'Material Samples', path: '/products' }
   ];
 
   const solutionLinks = [
-    { name: 'Residential', url: '/solutions' },
-    { name: 'Commercial', url: '/solutions' },
-    { name: 'Renovation', url: '/solutions' },
-    { name: 'Sustainable Building', url: '/solutions' },
-    { name: 'Architect Solutions', url: '/solutions' }
+    { name: 'Residential', path: '/solutions' },
+    { name: 'Commercial', path: '/solutions' },
+    { name: 'Renovation', path: '/solutions' },
+    { name: 'Sustainable Building', path: '/solutions' },
+    { name: 'Architect Solutions', path: '/solutions' }
   ];
 
   const resourceLinks = [
-    { name: 'Installation Guides', url: '/resources' },
-    { name: 'Material Calculators', url: '/resources' },
-    { name: 'Project Planning', url: '/resources' },
-    { name: 'Technical Specifications', url: '/resources' },
-    { name: 'Safety Data Sheets', url: '/resources' }
+    { name: 'Installation Guides', path: '/resources' },
+    { name: 'Material Calculators', path: '/resources' },
+    { name: 'Project Planning', path: '/resources' },
+    { name: 'Technical Specifications', path: '/resources' },
+    { name: 'Safety Data Sheets', path: '/resources' }
   ];
 
   const companyLinks = [
-    { name: 'About Us', url: '/about' },
-    { name: 'Our Locations', url: '/ourLocations' },
-    { name: 'Careers', url: '/careers' },
-    { name: 'Sustainability', url: '/sustainability' },
-    { name: 'Press & Media', url: '/pressMedia' }  
+    { name: 'About Us', path: '/about' },
+    { name: 'Our Locations', path: '/ourLocations' },
+    { name: 'Careers', path: '/careers' },
+    { name: 'Sustainability', path: '/sustainability' },
+    { name: 'Press & Media', path: '/pressMedia' }  
   ];
 
   const legalLinks = [
-    { name: 'Privacy Policy', url: '/privacyPolicy' },
-    { name: 'Terms of Service', url: '/termsService' },
-    { name: 'Contractor Terms', url: '/contractorTerms' }
+    { name: 'Privacy Policy', path: '/privacyPolicy' },
+    { name: 'Terms of Service', path: '/termsService' },
+    { name: 'Contractor Terms', path: '/contractorTerms' }
   ];
 
   const socialLinks = [
@@ -100,7 +101,7 @@ const Footer = () => {
         >
           <motion.div className="footer-brand" variants={itemVariants}>
             <div className="footer-logo">
-              <a href="/" className="logo-text">Renu Building</a>
+              <Link to="/" className="logo-text">Renu Building</Link>
               <span className="logo-subtext">Material & Sanitary Store</span>
             </div>
             <p className="footer-description">
@@ -137,10 +138,10 @@ const Footer = () => {
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <a href={item.url} className="footer-link">
+                    <Link to={item.path} className="footer-link">
                       <span className="link-hover"></span>
                       {item.name}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
@@ -155,10 +156,10 @@ const Footer = () => {
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <a href={item.url} className="footer-link">
+                    <Link to={item.path} className="footer-link">
                       <span className="link-hover"></span>
                       {item.name}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
@@ -173,10 +174,10 @@ const Footer = () => {
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <a href={item.url} className="footer-link">
+                    <Link to={item.path} className="footer-link">
                       <span className="link-hover"></span>
                       {item.name}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
@@ -191,10 +192,10 @@ const Footer = () => {
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <a href={item.url} className="footer-link">
+                    <Link to={item.path} className="footer-link">
                       <span className="link-hover"></span>
                       {item.name}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
@@ -213,14 +214,14 @@ const Footer = () => {
             <p className="copyright">© 2025 Renu Building Material & Sanitary Store. All rights reserved.</p>
             <div className="legal-links">
               {legalLinks.map((item, index) => (
-                <motion.a 
+                <motion.div 
                   key={index}
-                  href={item.url} 
-                  className="legal-link"
                   whileHover={{ color: '#ffffff' }}
                 >
-                  {item.name}
-                </motion.a>
+                  <Link to={item.path} className="legal-link">
+                    {item.name}
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </div>
