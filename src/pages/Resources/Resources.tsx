@@ -153,7 +153,7 @@ const ResourcesPage = () => {
                 </div>
                 <div className="resources-table-col resources-col-action">
                   <button className="resources-download-button">
-                    Download.
+                    Download
                   </button>
                 </div>
               </div>
