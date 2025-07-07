@@ -39,22 +39,22 @@ const ServiceCard = ({
 
   return (
     <motion.div 
-      className={`service-card ${featured ? 'featured' : ''}`}
+      className={`service-card ${featured ? 'service-card--featured' : ''}`}
       initial="hidden"
       whileInView="visible"
       whileHover="hover"
       variants={cardVariants}
       viewport={{ once: true, margin: "0px 0px -50px 0px" }}
     >
-      <div className="card-content">
+      <div className="service-card__content">
         <motion.div 
-          className={`service-icon-wrapper ${featured ? 'featured' : ''}`}
+          className={`service-card__icon-wrapper ${featured ? 'service-card__icon-wrapper--featured' : ''}`}
           variants={iconVariants}
         >
           {icon}
           {featured && (
             <motion.div 
-              className="pulse-ring"
+              className="service-card__pulse-ring"
               animate={{ 
                 scale: [1, 1.2, 1],
                 opacity: [0.8, 0.2, 0.8]
@@ -69,19 +69,19 @@ const ServiceCard = ({
           )}
         </motion.div>
         
-        <h3 className="card-title">{title}</h3>
-        <p className="card-description">{description}</p>
+        <h3 className="service-card__title">{title}</h3>
+        <p className="service-card__description">{description}</p>
         
-        <div className="card-button-container">
+        <div className="service-card__btn-container">
           <motion.button 
-            className={`card-button ${featured ? 'featured' : ''}`}
+            className={`service-card__btn ${featured ? 'service-card__btn--featured' : ''}`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             aria-label={`Explore ${title}`}
           >
             <span>Explore</span>
             <motion.span 
-              className="button-icon"
+              className="service-card__btn-icon"
               initial={{ x: 0 }}
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -94,7 +94,7 @@ const ServiceCard = ({
       
       {featured && (
         <motion.div 
-          className="featured-badge"
+          className="service-card__featured-badge"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ 
@@ -103,8 +103,8 @@ const ServiceCard = ({
             damping: 20
           }}
         >
-          <span className="badge-text">Most Popular</span>
-          <span className="badge-glow" />
+          <span className="service-card__badge-text">Most Popular</span>
+          <span className="service-card__badge-glow" />
         </motion.div>
       )}
     </motion.div>

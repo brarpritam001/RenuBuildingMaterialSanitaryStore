@@ -56,16 +56,14 @@ const Testimonials = () => {
     }
   ];
 
-const partners: Partner[] = [
-  { id: '1', name: "Ambuja Cement", logo: "https://www.ambujacement.com/images/desktop-logo.png" },
-  { id: '2', name: "Kankhal", logo: "https://www.kankhalgroup.com/assets/images/final-logo.png" },
-  { id: '3', name: "Shree Cement", logo: "https://www.shreecement.com/public/front_assets/images/logo.jpg" },
-  { id: '4', name: "Prince Pipe", logo: "https://www.princepipes.com/images/prince-pipes-new-logo24.png" },
-  { id: '5', name: "Supreme Industries", logo: "https://www.supreme.co.in/dist/img/logo.png" },
-  { id: '6', name: "Finolex Industries", logo: "https://www.finolex.com/images/Finolex_logo_header.svg" }
-];
-
-
+  const partners: Partner[] = [
+    // { id: '1', name: "Ambuja Cement", logo: "https://www.ambujacement.com/images/desktop-logo.png" },
+    // { id: '2', name: "Kankhal", logo: "https://www.kankhalgroup.com/assets/images/final-logo.png" },
+    // { id: '3', name: "Shree Cement", logo: "https://www.shreecement.com/public/front_assets/images/logo.jpg" },
+    // { id: '4', name: "Prince Pipe", logo: "https://www.princepipes.com/images/prince-pipes-new-logo24.png" },
+    // { id: '5', name: "Supreme Industries", logo: "https://www.supreme.co.in/dist/img/logo.png" },
+    // { id: '6', name: "Finolex Industries", logo: "https://www.finolex.com/images/Finolex_logo_header.svg" }
+  ];
 
   // State management
   const [activeIndex, setActiveIndex] = useState(0);
@@ -76,32 +74,30 @@ const partners: Partner[] = [
   const autoPlayTimeout = useRef<number | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
- // Navigation functions
-  // Auto-play management
- const goToNext = useCallback(() => {
-  setDirection(1);
-  setActiveIndex(prev => (prev + 1) % testimonials.length);
-  resetAutoPlayTimer();
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [testimonials.length]);
+  // Navigation functions
+  const goToNext = useCallback(() => {
+    setDirection(1);
+    setActiveIndex(prev => (prev + 1) % testimonials.length);
+    resetAutoPlayTimer();
+  }, [testimonials.length]);
 
- const resetAutoPlayTimer: () => void = useCallback(() => {
-  if (autoPlayTimeout.current) {
-    clearTimeout(autoPlayTimeout.current);
-  }
+  const resetAutoPlayTimer: () => void = useCallback(() => {
+    if (autoPlayTimeout.current) {
+      clearTimeout(autoPlayTimeout.current);
+    }
 
-  if (isAutoPlaying) {
-    autoPlayTimeout.current = setTimeout(() => {
-      goToNext(); // This will still work due to useCallback closures
-    }, 6000);
-  }
-}, [isAutoPlaying, goToNext]);
+    if (isAutoPlaying) {
+      autoPlayTimeout.current = setTimeout(() => {
+        goToNext();
+      }, 6000);
+    }
+  }, [isAutoPlaying, goToNext]);
 
- const goToPrev = useCallback(() => {
-  setDirection(-1);
-  setActiveIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
-  resetAutoPlayTimer();
-}, [testimonials.length, resetAutoPlayTimer]);
+  const goToPrev = useCallback(() => {
+    setDirection(-1);
+    setActiveIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
+    resetAutoPlayTimer();
+  }, [testimonials.length, resetAutoPlayTimer]);
 
   const goToIndex = (index: number) => {
     setDirection(index > activeIndex ? 1 : -1);
@@ -183,28 +179,28 @@ const partners: Partner[] = [
 
   return (
     <section 
-      className="testimonials-section"
+      className="testimonials-container"
       aria-labelledby="testimonials-heading"
       ref={carouselRef}
     >
-      <div className="container">
+      <div className="testimonials-inner">
         {/* Section Header */}
         <motion.div 
-          className="section-header"
+          className="testimonials-header"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInVariants}
         >
           <motion.span 
-            className="section-pre-title"
+            className="testimonials-pre-title"
             variants={fadeInVariants}
             transition={{ delay: 0.2 }}
           >
             Client Testimonials
           </motion.span>
           <motion.h2 
-            className="section-title"
+            className="testimonials-main-title"
             id="testimonials-heading"
             variants={fadeInVariants}
             transition={{ delay: 0.3 }}
@@ -212,7 +208,7 @@ const partners: Partner[] = [
             Trusted by Industry Leaders
           </motion.h2>
           <motion.p 
-            className="section-description"
+            className="testimonials-description"
             variants={fadeInVariants}
             transition={{ delay: 0.4 }}
           >
@@ -222,13 +218,13 @@ const partners: Partner[] = [
 
         {/* Testimonial Carousel */}
         <div 
-          className="testimonial-carousel"
+          className="testimonials-carousel"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
           <motion.button 
-            className="carousel-button prev"
+            className="testimonials-carousel-button testimonials-carousel-button-prev"
             onClick={goToPrev}
             aria-label="Previous testimonial"
             whileHover={{ scale: 1.1 }}
@@ -237,7 +233,7 @@ const partners: Partner[] = [
             <FaChevronLeft />
           </motion.button>
           
-          <div className="carousel-viewport">
+          <div className="testimonials-carousel-viewport">
             <AnimatePresence custom={direction} initial={false}>
               <motion.div
                 key={testimonials[activeIndex].id}
@@ -246,7 +242,7 @@ const partners: Partner[] = [
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="testimonial-slide"
+                className="testimonials-slide"
               >
                 <TestimonialCard 
                   testimonial={testimonials[activeIndex]} 
@@ -257,7 +253,7 @@ const partners: Partner[] = [
           </div>
           
           <motion.button 
-            className="carousel-button next"
+            className="testimonials-carousel-button testimonials-carousel-button-next"
             onClick={goToNext}
             aria-label="Next testimonial"
             whileHover={{ scale: 1.1 }}
@@ -268,11 +264,11 @@ const partners: Partner[] = [
         </div>
         
         {/* Carousel Indicators */}
-        <div className="carousel-indicators">
+        <div className="testimonials-indicators">
           {testimonials.map((testimonial, index) => (
             <motion.button
               key={testimonial.id}
-              className={`indicator ${activeIndex === index ? 'active' : ''}`}
+              className={`testimonials-indicator ${activeIndex === index ? 'testimonials-indicator-active' : ''}`}
               onClick={() => goToIndex(index)}
               aria-label={`Go to testimonial ${index + 1}`}
               whileHover={{ scale: 1.2 }}
@@ -288,18 +284,18 @@ const partners: Partner[] = [
 
         {/* Partners Section */}
         <motion.div 
-          className="partners-section"
+          // className="testimonials-partners-section"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInVariants}
           transition={{ delay: 0.2 }}
         >
-          <h3 className="partners-title">
+          {/* <h3 className="testimonials-partners-title">
             <span>Trusted Partners</span>
-          </h3>
+          </h3> */}
           
-          <div className="partners-grid">
+          <div className="testimonials-partners-grid">
             {partners.map(partner => (
               <PartnerLogo 
                 key={partner.id} 
@@ -317,16 +313,16 @@ const partners: Partner[] = [
 const TestimonialCard = ({ testimonial, active }: { testimonial: Testimonial, active?: boolean }) => {
   return (
     <motion.div 
-      className={`testimonial-card ${active ? 'active' : ''}`}
+      className={`testimonials-card ${active ? 'testimonials-card-active' : ''}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="card-inner">
-        <FaQuoteLeft className="quote-icon" />
+      <div className="testimonials-card-inner">
+        <FaQuoteLeft className="testimonials-quote-icon" />
         
         <motion.p 
-          className="testimonial-text"
+          className="testimonials-card-text"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -334,8 +330,8 @@ const TestimonialCard = ({ testimonial, active }: { testimonial: Testimonial, ac
           {testimonial.text}
         </motion.p>
         
-        <div className="testimonial-footer">
-          <div className="author-avatar">
+        <div className="testimonials-card-footer">
+          <div className="testimonials-author-avatar">
             {testimonial.image ? (
               <motion.img 
                 src={testimonial.image} 
@@ -346,7 +342,7 @@ const TestimonialCard = ({ testimonial, active }: { testimonial: Testimonial, ac
               />
             ) : (
               <motion.div 
-                className="avatar-initials"
+                className="testimonials-avatar-initials"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
@@ -355,9 +351,9 @@ const TestimonialCard = ({ testimonial, active }: { testimonial: Testimonial, ac
               </motion.div>
             )}
           </div>
-          <div className="author-info">
+          <div className="testimonials-author-info">
             <motion.h4 
-              className="author-name"
+              className="testimonials-author-name"
               initial={{ x: -10, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -365,7 +361,7 @@ const TestimonialCard = ({ testimonial, active }: { testimonial: Testimonial, ac
               {testimonial.name}
             </motion.h4>
             <motion.p 
-              className="author-meta"
+              className="testimonials-author-meta"
               initial={{ x: -10, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
@@ -376,7 +372,7 @@ const TestimonialCard = ({ testimonial, active }: { testimonial: Testimonial, ac
         </div>
         
         <motion.div 
-          className="testimonial-rating"
+          className="testimonials-rating"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -384,7 +380,7 @@ const TestimonialCard = ({ testimonial, active }: { testimonial: Testimonial, ac
           {[...Array(5)].map((_, i) => (
             <FaStar 
               key={i} 
-              className={`star ${i < testimonial.rating ? 'filled' : ''}`} 
+              className={`testimonials-star ${i < testimonial.rating ? 'testimonials-star-filled' : ''}`} 
             />
           ))}
         </motion.div>
@@ -397,7 +393,7 @@ const TestimonialCard = ({ testimonial, active }: { testimonial: Testimonial, ac
 const PartnerLogo = ({ partner }: { partner: Partner }) => {
   return (
     <motion.div 
-      className="partner-logo"
+      className="testimonials-partner-logo"
       whileHover={{ y: -5, scale: 1.05 }}
       transition={{ type: 'spring', stiffness: 400, damping: 10 }}
     >
@@ -408,7 +404,7 @@ const PartnerLogo = ({ partner }: { partner: Partner }) => {
           whileHover={{ filter: 'grayscale(0%)', opacity: 1 }}
         />
       ) : (
-        <div className="partner-name">{partner.name}</div>
+        <div className="testimonials-partner-name">{partner.name}</div>
       )}
     </motion.div>
   );

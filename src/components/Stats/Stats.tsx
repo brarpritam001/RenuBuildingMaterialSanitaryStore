@@ -7,16 +7,15 @@ const Stats = () => {
   const [counts, setCounts] = useState({ years: 0, projects: 0, delivery: 0, products: 0 });
   const statsRef = useRef(null);
   
-  // Animate the numbers when component is visible
   useEffect(() => {
     if (isVisible) {
-      const duration = 1800; // 1.8 seconds for the animation
+      const duration = 1800;
       const startTime = performance.now();
       
       const animateCounts = (timestamp: number) => {
         const elapsed = timestamp - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        const easeOutProgress = 1 - Math.pow(1 - progress, 3); // Ease-out cubic
+        const easeOutProgress = 1 - Math.pow(1 - progress, 3);
         
         setCounts({
           years: Math.ceil(easeOutProgress * 15),
@@ -34,7 +33,6 @@ const Stats = () => {
     }
   }, [isVisible]);
   
-  // Set up intersection observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -58,56 +56,55 @@ const Stats = () => {
       value: `${counts.years}+`,
       label: "Years Expertise",
       description: "Delivering excellence since 2010",
-      color: "text-indigo-600",
-      bgColor: "bg-indigo-50"
+      color: "stats__indigo-text",
+      bgColor: "stats__indigo-bg"
     },
     {
       icon: <Package size={28} />,
       value: `${counts.projects.toLocaleString()}+`,
       label: "Projects Supplied",
       description: "Trusted by major industries",
-      color: "text-blue-600",
-      bgColor: "bg-blue-50"
+      color: "stats__blue-text",
+      bgColor: "stats__blue-bg"
     },
     {
       icon: <Clock size={28} />,
       value: `${counts.delivery}%`,
       label: "On-time Delivery",
       description: "Reliability you can count on",
-      color: "text-emerald-600",
-      bgColor: "bg-emerald-50"
+      color: "stats__emerald-text",
+      bgColor: "stats__emerald-bg"
     },
     {
       icon: <CheckCircle size={28} />,
       value: `${counts.products.toLocaleString()}+`,
       label: "Quality Products",
       description: "Meeting highest standards",
-      color: "text-amber-600",
-      bgColor: "bg-amber-50"
+      color: "stats__amber-text",
+      bgColor: "stats__amber-bg"
     }
   ];
   
   return (
-    <section className="stats-section" ref={statsRef}>
-      <div className="stats-container">
-        <div className="stats-header">
-          <h2 className="stats-heading">Our Performance at a Glance</h2>
-          <p className="stats-subheading">
+    <section className="stats__section" ref={statsRef}>
+      <div className="stats__container">
+        <div className="stats__header">
+          <h2 className="stats__heading">Our Performance at a Glance</h2>
+          <p className="stats__subheading">
             Delivering consistent quality and reliability for over a decade
           </p>
-          {/* <div className="stats-divider"></div> */}
         </div>
         
-        <div className="stats-grid">
+        <div className="stats__grid">
           {statsData.map((stat, index) => (
-            <div className="stat-card" key={index}>
-              <div className={`stat-icon ${stat.bgColor} ${stat.color}`}>
+            <div className="stats__card" key={index}>
+              <div className={`stats__icon ${stat.bgColor} ${stat.color}`}>
                 {stat.icon}
               </div>
-              <div className="stat-content">
-                <div className="stat-value">{stat.value}</div>
-                <div className="stat-label">{stat.label}</div>
-                <div className="stat-description">{stat.description}</div>
+              <div className="stats__content">
+                <div className="stats__value">{stat.value}</div>
+                <div className="stats__label">{stat.label}</div>
+                <div className="stats__description">{stat.description}</div>
               </div>
             </div>
           ))}

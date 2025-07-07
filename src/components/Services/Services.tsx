@@ -22,26 +22,26 @@ const Services = () => {
   
   const services: Service[] = useMemo(() => [
     {
-      icon: <GiBrickWall className="service-icon" />,
+      icon: <GiBrickWall className="services__icon" />,
       title: "Construction Materials",
       description: "Quality cement, sand, gravel, dust, bricks, and other essential building materials for strong and reliable construction.",
       featured: true,
       category: 'materials'
     },
     {
-      icon: <GiWaterDrop className="service-icon" />,
+      icon: <GiWaterDrop className="services__icon" />,
       title: "Plumbing Systems",
       description: "Commercial-grade pipes, fittings, and fixtures from industry-leading manufacturers",
       category: 'systems'
     },   
     {
-      icon: <IoIosConstruct className="service-icon" />,
+      icon: <IoIosConstruct className="services__icon" />,
       title: "Construction Tools",
       description: "Professional-grade tools and equipment for contractors and serious DIYers",
       category: 'tools'
     },    
     {
-      icon: <FaBuilding className="service-icon" />,
+      icon: <FaBuilding className="services__icon" />,
       title: "Commercial Solutions",
       description: "Specialized materials and systems for large-scale commercial projects",
       category: 'systems'
@@ -90,10 +90,10 @@ const Services = () => {
   };
 
   return (
-    <section className="services-section" id="services">
-      <div className="services-container">
+    <section className="services" id="services">
+      <div className="services__container">
         <motion.div 
-          className="section-header"
+          className="services__header"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -101,17 +101,17 @@ const Services = () => {
           onViewportEnter={() => setIsInView(true)}
         >
           <motion.div 
-            className="badge-container"
+            className="services__badge-container"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <span className="section-pre-title">PRODUCT CATALOG</span>
+            <span className="services__pre-title">PRODUCT CATALOG</span>
           </motion.div>
           
           <motion.h2 
-            className="section-title"
+            className="services__title"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -121,7 +121,7 @@ const Services = () => {
           </motion.h2>
           
           <motion.p 
-            className="section-subtitle"
+            className="services__subtitle"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -132,7 +132,7 @@ const Services = () => {
         </motion.div>
 
         <motion.div 
-          className="category-filters"
+          className="services__filters"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -140,7 +140,7 @@ const Services = () => {
           {categories.map((category) => (
             <motion.button
               key={category.id}
-              className={`category-button ${activeCategory === category.id ? 'active' : ''}`}
+              className={`services__filter-btn ${activeCategory === category.id ? 'services__filter-btn--active' : ''}`}
               onClick={() => setActiveCategory(category.id)}
               variants={categoryButtonVariants}
               whileHover="hover"
@@ -149,7 +149,7 @@ const Services = () => {
               {category.name}
               {activeCategory === category.id && (
                 <motion.div 
-                  className="active-indicator" 
+                  className="services__active-indicator" 
                   layoutId="activeCategory"
                   transition={{ type: "spring", duration: 0.6 }}
                 />
@@ -159,7 +159,7 @@ const Services = () => {
         </motion.div>
 
         <motion.div 
-          className="services-grid"
+          className="services__grid"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -168,7 +168,7 @@ const Services = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeCategory}
-              className="filtered-services-grid"
+              className="services__filtered-grid"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -179,7 +179,7 @@ const Services = () => {
                   key={`${service.title}-${index}`}
                   variants={itemVariants}
                   layout
-                  className="service-card-container"
+                  className="services__card-container"
                 >
                   <ServiceCard {...service} />
                 </motion.div>

@@ -14,13 +14,11 @@ const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Handle video autoplay with fallback for mobile devices
     if (videoRef.current) {
       const playPromise = videoRef.current.play();
       
       if (playPromise !== undefined) {
         playPromise.catch(() => {
-          // Autoplay was prevented, fallback to muted autoplay
           if (videoRef.current) {
             videoRef.current.muted = true;
             videoRef.current.play();
@@ -39,7 +37,6 @@ const Hero = () => {
   };
 
   const calculateQuote = () => {
-    // Simple calculation logic - replace with your actual calculation
     const basePrices: Record<string, number> = {
       'new-construction': 50,
       'renovation': 40,
@@ -63,7 +60,6 @@ const Hero = () => {
     e.preventDefault();
     setIsCalculating(true);
     
-    // Simulate API call/calculation delay
     setTimeout(() => {
       const result = calculateQuote();
       setQuoteResult(result);
@@ -72,12 +68,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero">
-      <div className="hero-background">
-        <div className="hero-overlay"></div>
+    <section className="renu-hero-section">
+      <div className="renu-hero-background">
+        <div className="renu-hero-overlay"></div>
         <video
           ref={videoRef}
-          className="hero-video"
+          className="renu-hero-video"
           autoPlay
           loop
           muted
@@ -92,88 +88,88 @@ const Hero = () => {
         </video>
       </div>
 
-      <div className="container">
-        <div className="hero-content">
-          <div className="hero-grid">
-            <div className="hero-text">
-              <div className="hero-badge">
-                <FaShieldAlt className="badge-icon" />
+      <div className="renu-container">
+        <div className="renu-hero-content">
+          <div className="renu-hero-grid">
+            <div className="renu-hero-text-content">
+              <div className="renu-trusted-badge">
+                <FaShieldAlt className="renu-badge-icon" />
                 <span>TRUSTED BY INDUSTRY LEADERS</span>
               </div>
-              <h1 className="hero-title">
-                Renu <span className="highlight">Building Materials</span> & Sanitary Store
+              <h1 className="renu-hero-title">
+                Renu <span className="renu-highlight-text">Building Materials</span> & Sanitary Store
               </h1>
-              <p className="hero-subtitle">
+              <p className="renu-hero-subtitle">
                 Quality materials, competitive pricing, and reliable service for contractors and architects.
               </p>
               
-              <div className="feature-badges">  
-                <div className="feature-badge">
-                  <div className="feature-icon-container">
-                    <FaShieldAlt className="feature-icon" />
+              <div className="renu-feature-badges-container">  
+                <div className="renu-feature-badge">
+                  <div className="renu-feature-icon-wrapper">
+                    <FaShieldAlt className="renu-feature-icon" />
                   </div>
                   <span>Quality Guaranteed</span>
                 </div>
-                <div className="feature-badge">
-                  <div className="feature-icon-container">
-                    <FaClock className="feature-icon" />
+                <div className="renu-feature-badge">
+                  <div className="renu-feature-icon-wrapper">
+                    <FaClock className="renu-feature-icon" />
                   </div>
                   <span>24/7 Support</span>
                 </div>
-                <div className="feature-badge">
-                  <div className="feature-icon-container">
-                    <FaTruck className="feature-icon" />
+                <div className="renu-feature-badge">
+                  <div className="renu-feature-icon-wrapper">
+                    <FaTruck className="renu-feature-icon" />
                   </div>
                   <span>On-Time Delivery</span>
                 </div>
               </div>
               
-              <div className="hero-buttons">
-                <button className="hero-button primary">
-                  Browse Products <FaArrowRight className="button-icon" />
+              <div className="renu-hero-cta-buttons">
+                <button className="renu-primary-button">
+                  Browse Products <FaArrowRight className="renu-button-icon" />
                 </button>
-                <button className="hero-button secondary">
-                  <FaPhone className="button-icon" /> +91 80593-66488
+                <button className="renu-secondary-button">
+                  <FaPhone className="renu-button-icon" /> +91 80593-66488
                 </button>
               </div>
               
-              <div className="trusted-by">
-                <div className="avatar-group">
-                  <div className="avatar blue">MJ</div>
-                  <div className="avatar green">SW</div>
-                  <div className="avatar orange">RC</div>
-                  <div className="avatar purple">TL</div>
-                  <div className="avatar-more">+24</div>
+              <div className="renu-trusted-by-section">
+                <div className="renu-avatar-group">
+                  <div className="renu-avatar renu-avatar-blue">MJ</div>
+                  <div className="renu-avatar renu-avatar-green">SW</div>
+                  <div className="renu-avatar renu-avatar-orange">RC</div>
+                  <div className="renu-avatar renu-avatar-purple">TL</div>
+                  <div className="renu-avatar-more">+24</div>
                 </div>
-                <div className="trusted-text">
-                  <div className="trusted-rating">
-                    <div className="stars">
+                <div className="renu-trusted-text-content">
+                  <div className="renu-rating-display">
+                    <div className="renu-stars-container">
                       {[...Array(5)].map((_, i) => (
-                        <FaStar key={i} className="star-icon" />
+                        <FaStar key={i} className="renu-star-icon" />
                       ))}
                     </div>
                     <span>4.9/5</span>
                   </div>
-                  <span className="trusted-reviews">from 850+ reviews</span>
+                  <span className="renu-reviews-text">from 850+ reviews</span>
                 </div>
               </div>
             </div>
             
-            <div className="quote-calculator-container">
-              <div className="quote-calculator">
-                <div className="quote-header">
-                  <h3 className="quote-title">Get Your Instant Quote</h3>
-                  <span className="quote-badge">No obligation</span>
+            <div className="renu-quote-calculator-wrapper">
+              <div className="renu-quote-calculator">
+                <div className="renu-quote-header">
+                  <h3 className="renu-quote-title">Get Your Instant Quote</h3>
+                  <span className="renu-quote-badge">No obligation</span>
                 </div>
                 
-                <form className="quote-form" onSubmit={handleSubmit}>
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="projectType">Project Type</label>
-                    <div className="select-wrapper">
+                <form className="renu-quote-form" onSubmit={handleSubmit}>
+                  <div className="renu-form-group">
+                    <label className="renu-form-label" htmlFor="projectType">Project Type</label>
+                    <div className="renu-select-wrapper">
                       <select 
                         id="projectType"
                         name="projectType"
-                        className="form-select"
+                        className="renu-form-select"
                         value={formData.projectType}
                         onChange={handleInputChange}
                         required
@@ -187,13 +183,13 @@ const Hero = () => {
                     </div>
                   </div>
                   
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="squareFootage">Square Footage (sq ft)</label>
+                  <div className="renu-form-group">
+                    <label className="renu-form-label" htmlFor="squareFootage">Square Footage (sq ft)</label>
                     <input
                       type="number"
                       id="squareFootage"
                       name="squareFootage"
-                      className="form-input"
+                      className="renu-form-input"
                       placeholder="e.g. 1,500"
                       value={formData.squareFootage}
                       onChange={handleInputChange}
@@ -202,13 +198,13 @@ const Hero = () => {
                     />
                   </div>
                   
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="materialCategory">Material Category</label>
-                    <div className="select-wrapper">
+                  <div className="renu-form-group">
+                    <label className="renu-form-label" htmlFor="materialCategory">Material Category</label>
+                    <div className="renu-select-wrapper">
                       <select 
                         id="materialCategory"
                         name="materialCategory"
-                        className="form-select"
+                        className="renu-form-select"
                         value={formData.materialCategory}
                         onChange={handleInputChange}
                         required
@@ -222,7 +218,7 @@ const Hero = () => {
                   
                   <button 
                     type="submit" 
-                    className="quote-button"
+                    className="renu-quote-submit-button"
                     disabled={isCalculating}
                   >
                     {isCalculating ? (
@@ -230,25 +226,25 @@ const Hero = () => {
                     ) : (
                       <>
                         Calculate Estimate
-                        <FaArrowRight className="button-icon" />
+                        <FaArrowRight className="renu-button-icon" />
                       </>
                     )}
                   </button>
 
                   {quoteResult !== null && (
-                    <div className="quote-result">
-                      <div className="quote-result-label">Estimated Cost:</div>
-                      <div className="quote-result-value">
+                    <div className="renu-quote-result-display">
+                      <div className="renu-quote-result-label">Estimated Cost:</div>
+                      <div className="renu-quote-result-value">
                         ₹{quoteResult.toLocaleString()}
                       </div>
-                      <div className="quote-result-note">
+                      <div className="renu-quote-result-note">
                         This is an estimate. Final price may vary based on project details.
                       </div>
                     </div>
                   )}
                 </form>
                 
-                <div className="quote-disclaimer">
+                <div className="renu-quote-disclaimer">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 0C3.6 0 0 3.6 0 8C0 12.4 3.6 16 8 16C12.4 16 16 12.4 16 8C16 3.6 12.4 0 8 0ZM8 12C7.4 12 7 11.6 7 11C7 10.4 7.4 10 8 10C8.6 10 9 10.4 9 11C9 11.6 8.6 12 8 12ZM9 9C9 9.6 8.6 10 8 10C7.4 10 7 9.6 7 9V5C7 4.4 7.4 4 8 4C8.6 4 9 4.4 9 5V9Z" fill="#6B7280" />
                   </svg>
@@ -260,10 +256,10 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="hero-scroll-indicator">
+      <div className="renu-scroll-indicator">
         <span>Scroll</span>
-        <div className="scroll-line">
-          <div className="scroll-dot"></div>
+        <div className="renu-scroll-line">
+          <div className="renu-scroll-dot"></div>
         </div>
       </div>
     </section>

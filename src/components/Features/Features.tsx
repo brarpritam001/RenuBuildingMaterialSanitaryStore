@@ -77,42 +77,42 @@ const Features = () => {
     stats: string | number;
   }[] = [
     {
-      icon: <FaTrophy className="feature-icon" />,
+      icon: <FaTrophy className="bm-feature-icon" />,
       title: "Uncompromising Quality",
       description: "All materials meet or exceed stringent industry standards with full traceability and certification.",
       color: "blue",
       stats: "99.9% defect-free"
     },
     {
-      icon: <FaMoneyBillWave className="feature-icon" />,
+      icon: <FaMoneyBillWave className="bm-feature-icon" />,
       title: "Competitive Pricing",
       description: "Volume discounts and contractor programs that maximize your budget without sacrificing quality.",
       color: "green",
       stats: "Save up to 30%"
     },
     {
-      icon: <FaTruck className="feature-icon" />,
+      icon: <FaTruck className="bm-feature-icon" />,
       title: "Just-in-Time Delivery",
       description: "Precision scheduling with real-time tracking to keep projects on schedule and minimize storage needs.",
       color: "amber",
       stats: "98% on-time"
     },
     {
-      icon: <FaShieldAlt className="feature-icon" />,
+      icon: <FaShieldAlt className="bm-feature-icon" />,
       title: "Extended Warranties",
       description: "Industry-leading 5-year guarantee on all building materials, giving you peace of mind.",
       color: "purple",
       stats: "5-year coverage"
     },
     {
-      icon: <RiCustomerService2Fill className="feature-icon" />,
+      icon: <RiCustomerService2Fill className="bm-feature-icon" />,
       title: "Technical Support",
       description: "Dedicated construction professionals available 24/7 for project-specific advice and troubleshooting.",
       color: "red",
       stats: "24/7 availability"
     },
     {
-      icon: <FaBuilding className="feature-icon" />,
+      icon: <FaBuilding className="bm-feature-icon" />,
       title: "Project Coordination",
       description: "Specialized solutions and dedicated account managers for complex builds and large-scale projects.",
       color: "indigo",
@@ -121,16 +121,16 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="features-section" aria-labelledby="features-heading">
-      <div className="features-container">
+    <section id="features" className="bm-features-section" aria-labelledby="bm-features-heading">
+      <div className="bm-features-container">
         <motion.div 
-          className="section-header"
+          className="bm-section-header"
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={fadeInUp}
         >
           <motion.span 
-            className="section-pre-title"
+            className="bm-section-pre-title"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
@@ -138,16 +138,16 @@ const Features = () => {
             WHY BUILD WITH US
           </motion.span>
           <motion.h2 
-            id="features-heading" 
-            className="section-title"
+            id="bm-features-heading" 
+            className="bm-section-title"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            The <span className="highlight-text">BuildMaster</span> Difference
+            The <span className="bm-highlight-text">BuildMaster</span> Difference
           </motion.h2>
           <motion.p 
-            className="section-subtitle"
+            className="bm-section-subtitle"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
@@ -155,7 +155,7 @@ const Features = () => {
             We go beyond supply to become your trusted construction partner, delivering excellence at every stage.
           </motion.p>
           <motion.div 
-            className="header-decoration"
+            className="bm-header-decoration"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.7, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -164,7 +164,7 @@ const Features = () => {
 
         <motion.div 
           ref={ref}
-          className="features-grid"
+          className="bm-features-grid"
           variants={containerVariants}
           initial="hidden"
           animate={controls}
@@ -174,7 +174,7 @@ const Features = () => {
               <motion.div 
                 key={index} 
                 variants={itemVariants}
-                className="feature-item"
+                className="bm-feature-item"
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -192,39 +192,39 @@ const Features = () => {
         </motion.div>
         
         <motion.div 
-          className="features-cta"
+          className="bm-features-cta"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 1.2, duration: 0.6 }}
         >
-          <a href="#contact" className="primary-button">
+          <a href="#contact" className="bm-primary-button">
             <span>Schedule a Consultation</span>
-            <div className="button-icon">
-              <svg className="button-arrow" viewBox="0 0 20 20" fill="currentColor">
+            <div className="bm-button-icon">
+              <svg className="bm-button-arrow" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </div>
-            <div className="button-hover-effect" aria-hidden="true"></div>
+            <div className="bm-button-hover-effect" aria-hidden="true"></div>
           </a>
         </motion.div>
       </div>
       
       {/* Enhanced background elements */}
-      <div className="bg-shapes" aria-hidden="true">
+      <div className="bm-bg-shapes" aria-hidden="true">
         <motion.div 
-          className="bg-shape bg-shape-1"
+          className="bm-bg-shape bm-bg-shape-1"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={inView ? { opacity: 0.15, scale: 1 } : {}}
           transition={{ delay: 0.3, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         />
         <motion.div 
-          className="bg-shape bg-shape-2"
+          className="bm-bg-shape bm-bg-shape-2"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={inView ? { opacity: 0.1, scale: 1 } : {}}
           transition={{ delay: 0.5, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         />
         <motion.div 
-          className="bg-shape bg-shape-3"
+          className="bm-bg-shape bm-bg-shape-3"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={inView ? { opacity: 0.1, scale: 1 } : {}}
           transition={{ delay: 0.7, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
@@ -232,11 +232,11 @@ const Features = () => {
       </div>
 
       {/* Particle effects */}
-      <div className="particles">
+      <div className="bm-particles">
         {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
-            className="particle"
+            className="bm-particle"
             initial={{ opacity: 0, scale: 0 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{

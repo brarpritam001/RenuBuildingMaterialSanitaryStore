@@ -61,7 +61,7 @@ const FeatureCard = ({ icon, title, description, color, stats, index }: FeatureC
 
   return (
     <motion.div 
-      className="feature-card"
+      className="bm-feature-card"
       style={{
         background: gradient.bg,
         borderColor: gradient.border
@@ -83,56 +83,56 @@ const FeatureCard = ({ icon, title, description, color, stats, index }: FeatureC
         }
       }}
     >
-      <div className="feature-card-inner">
+      <div className="bm-feature-card-inner">
         <motion.div 
-          className="feature-icon-wrapper"
+          className="bm-feature-icon-wrapper"
           whileHover={{
             rotate: [0, 5, -5, 0],
             transition: { duration: 0.6 }
           }}
         >
           <motion.div 
-            className="feature-icon-container"
+            className="bm-feature-icon-container"
             style={{ background: gradient.iconBg }}
             whileHover={{ scale: 1.1 }}
           >
             {icon}
           </motion.div>
           <div 
-            className="feature-icon-ring"
+            className="bm-feature-icon-ring"
             style={{ borderColor: gradient.border }}
           />
         </motion.div>
         
-        <div className="feature-content">
+        <div className="bm-feature-content">
           <motion.h3 
-            className="feature-title"
+            className="bm-feature-title"
             whileHover={{ color: gradient.iconBg }}
             transition={{ duration: 0.3 }}
           >
             {title}
           </motion.h3>
-          <p className="feature-description">{description}</p>
+          <p className="bm-feature-description">{description}</p>
           
           <motion.div 
-            className="feature-stats"
+            className="bm-feature-stats"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: delay + 0.2, duration: 0.4 }}
           >
-            <span className="stats-badge">{stats}</span>
+            <span className="bm-stats-badge">{stats}</span>
           </motion.div>
         </div>
         
         <motion.div 
-          className="feature-learn-more"
+          className="bm-feature-learn-more"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: delay + 0.3 }}
         >
           <span>Learn more</span>
           <motion.svg 
-            className="feature-arrow"
+            className="bm-feature-arrow"
             viewBox="0 0 20 20" 
             fill="currentColor"
             whileHover={{ x: 4 }}
@@ -143,7 +143,7 @@ const FeatureCard = ({ icon, title, description, color, stats, index }: FeatureC
       </div>
       
       <motion.div 
-        className="feature-card-glow"
+        className="bm-feature-card-glow"
         style={{ background: gradient.glow }}
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 0.4 }}

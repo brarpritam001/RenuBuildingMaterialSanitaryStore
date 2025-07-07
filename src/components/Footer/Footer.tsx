@@ -90,56 +90,56 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="footer">
-      <div className="footer-container">
+    <footer className="renu-footer">
+      <div className="renu-footer-container">
         <motion.div 
-          className="footer-main"
+          className="renu-footer-main"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
         >
-          <motion.div className="footer-brand" variants={itemVariants}>
-            <div className="footer-logo">
-              <Link to="/" className="logo-text">Renu Building</Link>
-              <span className="logo-subtext">Material & Sanitary Store</span>
+          <motion.div className="renu-footer-brand" variants={itemVariants}>
+            <div className="renu-footer-logo">
+              <Link to="/" className="renu-logo-text">Renu Building</Link>
+              <span className="renu-logo-subtext">Material & Sanitary Store</span>
             </div>
-            <p className="footer-description">
+            <p className="renu-footer-description">
               Premium building materials and construction solutions for professionals who demand the best.
             </p>
-            <div className="footer-newsletter">
-              <h4 className="newsletter-title">Industry Insights</h4>
-              <p className="newsletter-subtitle">Get construction trends and product updates</p>
-              <div className="newsletter-form">
+            <div className="renu-footer-newsletter">
+              <h4 className="renu-newsletter-title">Industry Insights</h4>
+              <p className="renu-newsletter-subtitle">Get construction trends and product updates</p>
+              <div className="renu-newsletter-form">
                 <input 
                   type="email" 
                   placeholder="Your email address" 
-                  className="newsletter-input"
+                  className="renu-newsletter-input"
                 />
                 <motion.button 
                   type="submit"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaArrowRight className="button-icon" />
-                  <span className="sr-only">Subscribe</span>
+                  <FaArrowRight className="renu-button-icon" />
+                  <span className="renu-sr-only">Subscribe</span>
                 </motion.button>
               </div>
             </div>
           </motion.div>
 
-          <div className="footer-links-grid">
-            <motion.div className="footer-links-group" variants={itemVariants}>
-              <h3 className="footer-links-title">Products</h3>
-              <ul className="footer-links-list">
+          <div className="renu-footer-links-grid">
+            <motion.div className="renu-footer-links-group" variants={itemVariants}>
+              <h3 className="renu-footer-links-title">Products</h3>
+              <ul className="renu-footer-links-list">
                 {productLinks.map((item, index) => (
                   <motion.li 
                     key={index}
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <Link to={item.path} className="footer-link">
-                      <span className="link-hover"></span>
+                    <Link to={item.path} className="renu-footer-link">
+                      <span className="renu-link-hover"></span>
                       {item.name}
                     </Link>
                   </motion.li>
@@ -147,17 +147,17 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            <motion.div className="footer-links-group" variants={itemVariants}>
-              <h3 className="footer-links-title">Solutions</h3>
-              <ul className="footer-links-list">
+            <motion.div className="renu-footer-links-group" variants={itemVariants}>
+              <h3 className="renu-footer-links-title">Solutions</h3>
+              <ul className="renu-footer-links-list">
                 {solutionLinks.map((item, index) => (
                   <motion.li 
                     key={index}
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <Link to={item.path} className="footer-link">
-                      <span className="link-hover"></span>
+                    <Link to={item.path} className="renu-footer-link">
+                      <span className="renu-link-hover"></span>
                       {item.name}
                     </Link>
                   </motion.li>
@@ -165,17 +165,17 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            <motion.div className="footer-links-group" variants={itemVariants}>
-              <h3 className="footer-links-title">Resources</h3>
-              <ul className="footer-links-list">
+            <motion.div className="renu-footer-links-group" variants={itemVariants}>
+              <h3 className="renu-footer-links-title">Resources</h3>
+              <ul className="renu-footer-links-list">
                 {resourceLinks.map((item, index) => (
                   <motion.li 
                     key={index}
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <Link to={item.path} className="footer-link">
-                      <span className="link-hover"></span>
+                    <Link to={item.path} className="renu-footer-link">
+                      <span className="renu-link-hover"></span>
                       {item.name}
                     </Link>
                   </motion.li>
@@ -183,17 +183,17 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            <motion.div className="footer-links-group" variants={itemVariants}>
-              <h3 className="footer-links-title">Company</h3>
-              <ul className="footer-links-list">
+            <motion.div className="renu-footer-links-group" variants={itemVariants}>
+              <h3 className="renu-footer-links-title">Company</h3>
+              <ul className="renu-footer-links-list">
                 {companyLinks.map((item, index) => (
                   <motion.li 
                     key={index}
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <Link to={item.path} className="footer-link">
-                      <span className="link-hover"></span>
+                    <Link to={item.path} className="renu-footer-link">
+                      <span className="renu-link-hover"></span>
                       {item.name}
                     </Link>
                   </motion.li>
@@ -204,21 +204,21 @@ const Footer = () => {
         </motion.div>
 
         <motion.div 
-          className="footer-bottom"
+          className="renu-footer-bottom"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <div className="footer-legal">
-            <p className="copyright">© 2025 Renu Building Material & Sanitary Store. All rights reserved.</p>
-            <div className="legal-links">
+          <div className="renu-footer-legal">
+            <p className="renu-copyright">© 2025 Renu Building Material & Sanitary Store. All rights reserved.</p>
+            <div className="renu-legal-links">
               {legalLinks.map((item, index) => (
                 <motion.div 
                   key={index}
                   whileHover={{ color: '#ffffff' }}
                 >
-                  <Link to={item.path} className="legal-link">
+                  <Link to={item.path} className="renu-legal-link">
                     {item.name}
                   </Link>
                 </motion.div>
@@ -226,14 +226,14 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer-social">
+          <div className="renu-footer-social">
             {socialLinks.map((social, index) => (
               <motion.a
                 key={index}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link"
+                className="renu-social-link"
                 aria-label={social.name}
                 whileHover={{ y: -3, scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
